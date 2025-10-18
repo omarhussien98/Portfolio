@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Omar Hussien - Full Stack Developer Portfolio</title>
+    <meta name="description" content="Omar Hussien - Passionate Full Stack Developer specializing in modern web technologies. View my projects and skills.">
+    <meta name="keywords" content="Omar Hussien, Full Stack Developer, Web Developer, JavaScript, React, Node.js, Portfolio">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        body {
+            font-family: 'Monaco', 'Calibri Light', sans-serif;
+            background-color: #111827;
+            color: white;
+            scroll-padding-top: 80px;
+        }
+
+        /* Progress bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            z-index: 100;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            color: white;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .card {
+            background: #2a2a2a;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+            border: 1px solid #404040;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-item {
+            flex: 0 0 auto;
+            width: 200px;
+            margin: 0 1rem;
+            background: #2a2a2a;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 1px solid #404040;
+        }
+
+        .skills-container {
+            overflow: hidden;
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .skills-track {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            width: max-content;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            color: white;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .skills-track:hover {
+            animation-play-state: paused;
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 22ch; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: currentColor; }
+        }
+        .typewriter h2 {
+            overflow: hidden;
+            border-right: 0.15em solid currentColor;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 0.20em;
+            animation: typing 2.5s steps(22, end), blink-caret 0.75s step-end infinite;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .social-links a {
+            font-size: 2rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+            border-radius: 50%;
+            color: white;
+        }
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+        .social-links a.github:hover {
+            color: #6e5494;
+            background: rgba(110, 84, 148, 0.1);
+        }
+        .social-links a.linkedin:hover {
+            color: #0a66c2;
+            background: rgba(10, 102, 194, 0.1);
+        }
+        .social-links a.gmail:hover {
+            color: #ea4335;
+            background: rgba(234, 67, 53, 0.1);
+        }
+
+        .project-card {
+            background: #2a2a2a;
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #404040;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            position: relative;
+            overflow: hidden;
+        }
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        .project-image i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: white;
+            z-index: 1;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background: currentColor;
+            margin: 2px 0;
+            transition: 0.3s;
+        }
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .typewriter h2 {
+                font-size: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem !important;
+            }
+        }
+
+        .contact-info {
+            background: #2a2a2a;
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid #404040;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        /* VS Code icon animation */
+        .vs-code-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .code-editor {
+            width: 250px;
+            height: 300px;
+            background: linear-gradient(145deg, #1e1e1e, #2d2d30);
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .code-editor::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: #323233;
+            border-radius: 12px 12px 0 0;
+        }
+        .code-lines {
+            margin-top: 40px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+        }
+        .code-line {
+            margin: 8px 0;
+            height: 14px;
+            border-radius: 2px;
+            animation: typing-code 3s ease-in-out infinite;
+        }
+        .code-line:nth-child(1) { background: linear-gradient(90deg, #ff6b6b, transparent); width: 80%; }
+        .code-line:nth-child(2) { background: linear-gradient(90deg, #4ecdc4, transparent); width: 60%; animation-delay: 0.5s; }
+        .code-line:nth-child(3) { background: linear-gradient(90deg, #45b7d1, transparent); width: 90%; animation-delay: 1s; }
+        .code-line:nth-child(4) { background: linear-gradient(90deg, #f9ca24, transparent); width: 70%; animation-delay: 1.5s; }
+
+        @keyframes typing-code {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        
+        /* New styles for certifications and contact form */
+        .certification-card {
+            background: #2a2a2a;
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid #404040;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        .certification-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            background: #2a2a2a;
+            border: 1px solid #404040;
+            color: white;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+        }
+        
+        textarea.form-input {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .footer {
+            background: #1a1a1a;
+            padding: 3rem 0;
+            color: white;
+        }
+
+        /* Improved link styles */
+        a {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Certification badges */
+        .cert-badge {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+        }
+        
+        .badge-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        
+        .badge-secondary {
+            background: #3a3a3a;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-black fixed top-0 w-full z-50 shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-white">Omar Hussien</div>
+            
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-8 text-white">
+                <li><a href="#home" class="hover:text-blue-400 transition nav-link">Home</a></li>
+                <li><a href="#about" class="hover:text-blue-400 transition nav-link">About</a></li>
+                <li><a href="#skills" class="hover:text-blue-400 transition nav-link">Skills</a></li>
+                <li><a href="#projects" class="hover:text-blue-400 transition nav-link">Projects</a></li>
+                <li><a href="#certifications" class="hover:text-blue-400 transition nav-link">Certifications</a></li>
+                <li><a href="#contact" class="hover:text-blue-400 transition nav-link">Contact</a></li>
+            </ul>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn text-white" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-black shadow-lg hidden">
+            <ul class="px-6 py-4 space-y-4 text-white">
+                <li><a href="#home" class="block hover:text-blue-400 nav-link">Home</a></li>
+                <li><a href="#about" class="block hover:text-blue-400 nav-link">About</a></li>
+                <li><a href="#skills" class="block hover:text-blue-400 nav-link">Skills</a></li>
+                <li><a href="#projects" class="block hover:text-blue-400 nav-link">Projects</a></li>
+                <li><a href="#certifications" class="block hover:text-blue-400 nav-link">Certifications</a></li>
+                <li><a href="#contact" class="block hover:text-blue-400 nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="flex items-center min-h-screen bg-gradient-to-br from-gray-900 to-black pt-20">
+        <div class="container mx-auto px-6 text-center fade-in">
+            <h1 class="text-4xl md:text-6xl lg:text-8xl font-bold mb-4 text-white">I'm <span class="text-blue-400">Omar Hussien</span></h1>
+            <div class="typewriter text-xl md:text-2xl lg:text-4xl mb-8 text-white">
+                <h2>A Full Stack Developer</h2>
+            </div>
+            <p class="text-base md:text-lg mb-8 max-w-2xl mx-auto text-gray-300">I build amazing digital experiences that captivate and engage users. With a passion for clean code and innovative design, I create solutions that make a difference.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="btn">CONTACT WITH ME</a>
+                <a href="https://drive.google.com/file/d/1fHhqLCMe2eLynTBngYJV4ZPZxBFgu4rP/view?usp=drive_link" target="_blank" class="border border-white text-white px-6 py-3 rounded-lg hover:border-blue-400 hover:text-blue-400 transition">GET RESUME</a>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="https://github.com/omarhussien98" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="github">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/omar-hussien-7a7b4820a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="linkedin">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:omar.anr9348@gmail.com" aria-label="Send Email" class="gmail">
+                   <i class="fas fa-envelope"></i>
+                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title text-white">About Me</h2>
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <div class="personal-photo">
+                        <img src="ph.jpeg">
+                        <style>
+                        .personal-photo {
+                            width: 100%;
+                            max-width: 380px;
+                            height: 430px; /* ارتفاع ثابت */
+                            margin: 0 auto;
+                            overflow: hidden; /* هذا يخفي الأجزاء الزائدة */
+                            border-radius: 20px;
+                            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+                            position: relative;
+                        }
+                        
+                        .personal-photo img {
+                            width: 100%;
+                            height: auto; /* اتركها auto */
+                            min-height: 100%;
+                            object-fit: cover;
+                            object-position: center 15%; /* تحكم في الجزء الظاهر */
+                            display: block;
+                        }
+                        </style>
+
+                    </div>
+  
+                </div>
+                <div class="lg:w-1/2">
+                    <p class="text-lg mb-6 text-gray-300">Hi, I'm Omar Hussien, a passionate Full Stack Developer focused on building modern, responsive web applications. I bridge the gap between design and functionality to create seamless digital experiences.</p>
+                    <p class="text-lg mb-6 text-gray-300">My development journey is driven by a problem-solving mindset and continuous learning. I thrive on turning complex challenges into efficient, maintainable solutions using the latest web technologies.</p>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-2xl font-semibold mb-4 text-white">What I Offer:</h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-blue-400 mr-3"></i>
+                                <span>Full Stack Development - End-to-end web solutions</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-blue-400 mr-3"></i>
+                                <span>Modern React Applications - Dynamic user interfaces</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-blue-400 mr-3"></i>
+                                <span>Backend Development</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-blue-400 mr-3"></i>
+                                <span>Database Management - Efficient data design & integration</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-blue-400 mr-3"></i>
+                                <span>API Development & Integration</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <span>Ready to turn your vision into reality?</span>
+                    <div style="margin: 20px 0;">
+                        <a href="#contact" class="btn">Let's Connect</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title text-white">My Skills</h2>
+            <div class="skills-container">
+                <div class="skills-track">
+                    <!-- HTML -->
+                    <div class="skill-item">
+                        <i class="fab fa-html5 skill-icon text-orange-500"></i>
+                        <div class="skill-name">HTML5</div>
+                        <div class="text-sm text-gray-400">Markup Language</div>
+                    </div>
+                    
+                    <!-- CSS -->
+                    <div class="skill-item">
+                        <i class="fab fa-css3-alt skill-icon text-blue-500"></i>
+                        <div class="skill-name">CSS3</div>
+                        <div class="text-sm text-gray-400">Styling & Layout</div>
+                    </div>
+                    
+                    <!-- JavaScript -->
+                    <div class="skill-item">
+                        <i class="fab fa-js-square skill-icon text-yellow-500"></i>
+                        <div class="skill-name">JavaScript</div>
+                        <div class="text-sm text-gray-400">Programming Language</div>
+                    </div>
+
+                    <!-- Python -->
+                    <div class="skill-item">
+                       <i class="devicon-python-plain colored skill-icon"></i>
+                       <div class="skill-name">Python</div>
+                       <div class="text-sm text-gray-400">Programming Language</div>
+                    </div>
+  
+
+                    <!-- TypeScript -->
+                    <div class="skill-item">
+                      <i class="devicon-typescript-plain colored skill-icon text-blue-600"></i>
+                      <div class="skill-name">TypeScript</div>
+                      <div class="text-sm text-gray-400">Programming Language</div>
+                    </div>
+  
+  
+
+                    <!-- React -->
+                    <div class="skill-item">
+                        <i class="fab fa-react skill-icon text-cyan-500"></i>
+                        <div class="skill-name">React</div>
+                        <div class="text-sm text-gray-400">Frontend Framework</div>
+                    </div>
+                    
+                    <!-- Node.js -->
+                    <div class="skill-item">
+                        <i class="fab fa-node-js skill-icon text-green-600"></i>
+                        <div class="skill-name">Node.js</div>
+                        <div class="text-sm text-gray-400">Backend Runtime</div>
+                    </div>
+                    
+                    <!-- MongoDB -->
+                    <div class="skill-item">
+                        <i class="fas fa-database skill-icon text-green-500"></i>
+                        <div class="skill-name">MongoDB</div>
+                        <div class="text-sm text-gray-400">NoSQL Database</div>
+                    </div>
+                    
+                    <!-- Postman -->
+                    <div class="skill-item">
+                        <i class="fas fa-tools skill-icon text-orange-500"></i>
+                        <div class="skill-name">Postman</div>
+                        <div class="text-sm text-gray-400">API Testing</div>
+                    </div>
+                    
+                    <!-- GitHub -->
+                    <div class="skill-item">
+                        <i class="fab fa-github skill-icon text-gray-500"></i>
+                        <div class="skill-name">GitHub</div>
+                        <div class="text-sm text-gray-400">Version Control</div>
+                    </div>
+
+                    <!-- TailwindCSS -->
+                    <div class="skill-item">
+                        <i class="fas fa-paint-brush skill-icon text-cyan-400"></i>
+                        <div class="skill-name">Tailwind CSS</div>
+                        <div class="text-sm text-gray-400">CSS Framework</div>
+                    </div>
+
+                    <!-- Duplicate for continuous scroll -->
+                    <div class="skill-item">
+                        <i class="fab fa-html5 skill-icon text-orange-500"></i>
+                        <div class="skill-name">HTML5</div>
+                        <div class="text-sm text-gray-400">Markup Language</div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <i class="fab fa-css3-alt skill-icon text-blue-500"></i>
+                        <div class="skill-name">CSS3</div>
+                        <div class="text-sm text-gray-400">Styling & Layout</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title text-white">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1: E-commerce -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3 text-white">E-commerce Platform</h3>
+                        <p class="mb-4 text-gray-300">Full Stack E-Commerce Platform with product management, shopping cart, authentication, and database integration using Node.js and JavaScript.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-cyan-500 text-white px-2 py-1 rounded text-sm">React</span>
+                            <span class="bg-green-600 text-white px-2 py-1 rounded text-sm">Node.js</span>
+                            <span class="bg-yellow-500 text-black px-2 py-1 rounded text-sm">JavaScript</span>
+                            <span class="bg-blue-500 text-white px-2 py-1 rounded text-sm">Express</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://omarhussien98.github.io/Future-Shop/" target="_blank" class="text-blue-400 hover:text-blue-300 transition">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="https://github.com/omarhussien98/Future-Shop" target="_blank" class="text-gray-400 hover:text-gray-300 transition">
+                                <i class="fab fa-github mr-2"></i>Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Booking App -->
+                <!-- class="fas fa-tasks" -->
+                <div class="project-card">
+                    <div class="project-image">
+                    <img src="1.PNG">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3 text-white">Booking App</h3>
+                        <p class="mb-4 text-gray-300">Booking web application for managing reservations (create, update, delete) with user authentication and database storage. Built using Node.js, JavaScript and sqlite..</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-orange-500 text-white px-2 py-1 rounded text-sm">HTML</span>
+                            <span class="bg-blue-500 text-white px-2 py-1 rounded text-sm">CSS</span>
+                            <span class="bg-yellow-500 text-black px-2 py-1 rounded text-sm">JavaScript</span>
+                            <span class="bg-green-600 text-white px-2 py-1 rounded text-sm">Node.js</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://omarhussien98.github.io/BOOKINGHUB/" target="_blank" class="text-blue-400 hover:text-blue-300 transition">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="https://github.com/omarhussien98/BOOKINGHUB" target="_blank" class="text-gray-400 hover:text-gray-300 transition">
+                                <i class="fab fa-github mr-2"></i>Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Notes App -->
+                <!-- class="fas fa-tasks" -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <span>
+                    <img src="Capture.PNG">
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3 text-white">Authentication System</h3>
+                        <p class="mb-4 text-gray-300">A modern and responsive authentication interface showcasing login and registration flows, password strength indicators, show/hide password feature, and real-time validation. Built to demonstrate Front-End skills in creating user-friendly authentication experiences.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-orange-500 text-white px-2 py-1 rounded text-sm">HTML</span>
+                            <span class="bg-blue-500 text-white px-2 py-1 rounded text-sm">CSS</span>
+                            <span class="bg-yellow-500 text-black px-2 py-1 rounded text-sm">JavaScript</span>
+                            <span class="bg-green-600 text-white px-2 py-1 rounded text-sm">MongoDB</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://omarhussien98.github.io/Authentication-System/" target="_blank" class="text-blue-400 hover:text-blue-300 transition">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="https://github.com/omarhussien98/Authentication-System" target="_blank" class="text-gray-400 hover:text-gray-300 transition">
+                                <i class="fab fa-github mr-2"></i>Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Notes App -->
+                <!-- class="fas fa-tasks" -->
+                <div class="project-card">
+                    <div class="project-image">
+                    <img src="photo.png">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3 text-white">Notes App</h3>
+                        <p class="mb-4 text-gray-300">It's an interactive web application that allows users to create and manage their personal notes with search and filtering capabilities. The application features an intuitive user interface and a responsive design that works on various screen sizes using HTML, CSS, and JavaScript.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-orange-500 text-white px-2 py-1 rounded text-sm">HTML</span>
+                            <span class="bg-blue-500 text-white px-2 py-1 rounded text-sm">CSS</span>
+                            <span class="bg-yellow-500 text-black px-2 py-1 rounded text-sm">JavaScript</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://omarhussien98.github.io/Notes-App/" target="_blank" class="text-blue-400 hover:text-blue-300 transition">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="https://github.com/omarhussien98/Notes-App" target="_blank" class="text-gray-400 hover:text-gray-300 transition">
+                                <i class="fab fa-github mr-2"></i>Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                  <!-- Project 5: Portfolio -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3 text-white">Portfolio</h3>
+                        <p class="mb-4 text-gray-300">This website is a personal/portfolio website, showcasing skills, projects, and professional experience. It is professionally designed using HTML, CSS, JavaScript, and React.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-orange-500 text-white px-2 py-1 rounded text-sm">HTML</span>
+                            <span class="bg-blue-500 text-white px-2 py-1 rounded text-sm">CSS</span>
+                            <span class="bg-yellow-500 text-black px-2 py-1 rounded text-sm">JavaScript</span>
+                            <span class="bg-cyan-500 text-white px-2 py-1 rounded text-sm">React</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://lifetrack98.netlify.app" target="_blank" class="text-blue-400 hover:text-blue-300 transition">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="https://github.com/omarhussien98" target="_blank" class="text-gray-400 hover:text-gray-300 transition">
+                                <i class="fab fa-github mr-2"></i>Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title text-white">My Certifications</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Certification 1 -->
+                <div class="certification-card">
+                    <div class="text-center mb-4">
+                        <i class="fab fa-html5 text-5xl text-orange-500 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-white mb-2">Diploma in HTML5, CSS3 and JavaScript</h3>
+                        <p class="text-gray-400 mb-2">Alison</p>
+                        <p class="text-sm text-gray-300">Issued: 2025</p>
+                        <div class="mt-3">
+                            <span class="cert-badge badge-primary">Frontend</span>
+                            <span class="cert-badge badge-secondary">Web Development</span>
+                        </div>
+                    </div>
+                    <a class="btn w-full text-center block">course completed</a>
+                </div>
+
+                <!-- Certification 2 -->
+                <div class="certification-card">
+                    <div class="text-center mb-4">
+                        <i class="fab fa-js-square text-5xl text-yellow-500 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-white mb-2">JavaScript</h3>
+                        <p class="text-gray-400 mb-2">European Academy</p>
+                        <p class="text-sm text-gray-300">Issued: 2025</p>
+                        <div class="mt-3">
+                            <span class="cert-badge badge-primary">JavaScript</span>
+                            <span class="cert-badge badge-secondary">Programming</span>
+                        </div>
+                    </div>
+                    <a href="https://drive.google.com/file/d/17rZKVjSpqADCsF5bIvenTX3Toby25qWj/view?usp=sharing" target="_blank" class="btn w-full text-center block">View Certificate</a>
+                </div>
+
+                <!-- Certification 3 -->
+                <div class="certification-card">
+                    <div class="text-center mb-4">
+                        <i class="fab fa-node-js text-5xl text-green-600 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-white mb-2">Node.js</h3>
+                        <p class="text-gray-400 mb-2">Simplilearn</p>
+                        <p class="text-sm text-gray-300">Issued: 2025</p>
+                        <div class="mt-3">
+                            <span class="cert-badge badge-primary">Backend</span>
+                            <span class="cert-badge badge-secondary">Server-side</span>
+                        </div>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1KnMP8vOodF8pYaYm0_Ot5uY1q1YXx1qj/view?usp=sharing" target="_blank" class="btn w-full text-center block">View Certificate</a>
+                </div>
+
+                 <!-- Certification 4 -->
+                 <div class="certification-card">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-robot text-5xl text-blue-400 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-white mb-2">Elements of AI</h3>
+                        <p class="text-gray-400 mb-2">University of Helsinki</p>
+                        <p class="text-sm text-gray-300">Issued: 2025</p>
+                        <div class="mt-3">
+                            <span class="cert-badge badge-primary">Artificial Intelligence</span>
+                            <span class="cert-badge badge-secondary">Fundamentals</span>
+                        </div>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1qnYbhkkCoNh3hu-9D5pubQfx-yIf-1lm/view?usp=sharing" target="_blank" class="btn w-full text-center block">View Certificate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title text-white">Get In Touch</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h3 class="text-2xl font-semibold mb-6 text-white">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-blue-400 mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="text-lg font-medium text-white">Email</h4>
+                                <a href="mailto:omar.anr9348@gmail.com" class="text-gray-300 hover:text-blue-400 transition">omar.anr9348@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fab fa-linkedin text-blue-400 mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="text-lg font-medium text-white">LinkedIn</h4>
+                                <a href="http://linkedin.com/in/omarhussien-7a7b4820a" target="_blank" class="text-gray-300 hover:text-blue-400 transition">linkedin.com/in/omarhussien</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fab fa-github text-blue-400 mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="text-lg font-medium text-white">GitHub</h4>
+                                <a href="https://github.com/omarhussien98" target="_blank" class="text-gray-300 hover:text-blue-400 transition">github.com/omarhussien98</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-blue-400 mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="text-lg font-medium text-white">Location</h4>
+                                <p class="text-gray-300">Egypt</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-info">
+                <h3 class="text-2xl font-semibold mb-6 text-white">Send Me a Message</h3>
+    
+    <!-- التعديل هنا: إضافة action و method وإزالة id -->
+    <form action="https://formspree.io/f/mzzjgpky" method="POST">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <label for="name" class="block mb-2 text-white">Your Name</label>
+                <!-- التعديل: إضافة name attribute -->
+                <input type="text" id="name" name="name" class="form-input" placeholder="John Doe" required>
+            </div>
+            <div>
+                <label for="email" class="block mb-2 text-white">Your Email</label>
+                <!-- التعديل: تغيير name إلى _replyto -->
+                <input type="email" id="email" name="_replyto" class="form-input" placeholder="john@example.com" required>
+            </div>
+        </div>
+        <div class="mt-4">
+            <label for="subject" class="block mb-2 text-white">Subject</label>
+            <!-- التعديل: إضافة name attribute -->
+            <input type="text" id="subject" name="subject" class="form-input" placeholder="Project Inquiry" required>
+        </div>
+        <div class="mt-4">
+            <label for="message" class="block mb-2 text-white">Your Message</label>
+            <!-- التعديل: إضافة name attribute -->
+            <textarea id="message" name="message" class="form-input" placeholder="Hello, I would like to discuss..." required></textarea>
+        </div>
+        <button type="submit" class="btn w-full mt-6">Send Message</button>
+    </form>
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-center md:text-left mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold text-white">Omar Hussien</h3>
+                    <p class="mt-2 text-gray-300">Full Stack Developer</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://github.com/omarhussien98" target="_blank" class="text-2xl text-white hover:text-blue-400 transition">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="http://linkedin.com/in/omarhussien-7a7b4820a" target="_blank" class="text-2xl text-white hover:text-blue-400 transition">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:omar.anr9348@gmail.com" class="text-2xl text-white hover:text-blue-400 transition">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-300">&copy; 2025 All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would normally send the form data to a server
+            // For now, we'll just show an alert and reset the form
+            alert(`Thank you for your message, ${name}! I'll get back to you soon.`);
+            contactForm.reset();
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Progress bar animation
+        window.onscroll = function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        };
+    </script>
+</body>
+</html>
