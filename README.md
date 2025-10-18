@@ -1,3 +1,9 @@
+<img width="1000" height="500" alt="image" src="https://github.com/user-attachments/assets/8c83186e-b26a-4bd6-98a3-9e38a19e5759" />
+
+<img width="1000" height="500" alt="image" src="https://github.com/user-attachments/assets/dcf2424a-c9ec-403a-9397-3cdbd3a3ee87" />
+
+
+
 # 🌐 Omar Hussein - Personal Portfolio
 
 Welcome to my personal portfolio website!  
